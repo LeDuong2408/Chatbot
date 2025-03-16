@@ -1,5 +1,7 @@
-1. My Achievements:
+<h2> 1. My Achievements: </h2>
+
 - The model is deployed by integrating LangChain’s AddRoute with FastAPI. 
+
 - The chatbot model can extract information from PDF files (academic papers). When users ask questions, the LLM model (Llama-2-7B-Chat.Q6_K) can provide accurate answers.
   
 **Below are some examples:**
@@ -27,4 +29,40 @@
   
   ![3](https://github.com/user-attachments/assets/53078fc4-8a13-402b-a4c2-e63f1cff5dec)
   
-2. Hướng dẫn cài đặt:
+<h2> 2. Installation Guide: </h2>
+
+**Step 1: Install Conda **
+  
+  Before setting up the environment, ensure you have Conda installed. Then, create the environment using the following command:
+
+  `conda env create -f chatbot.yaml`
+  
+  Once the environment is set up, activate and work within it using:
+
+  `conda activate chatbot`
+  
+**Step 2: Download the LLM Model**
+
+Visit the [Hugging Face homepage](https://huggingface.co/) to download an LLM model compatible with your system.
+
+**Step 3: Authenticate Hugging Face**
+
+Generate a token in your Hugging Face account and log in on your machine using the following command:
+
+`huggingface-cli login`
+
+**Step 4: Download PDF Files**
+
+Select and download the desired PDF files that the chatbot will process.
+
+**Step 5: Start the Chatbot**
+
+Run the chatbot using the following command:
+
+`uvicorn src.app:app --host "0.0.0.0" --port 5050`
+
+You can chance port in case have problems with this port 
+
+**Step 6: Access the Chatbot**
+
+Open your browser and go to: [http://localhost:5050/docs](http://localhost:5050/docs)
