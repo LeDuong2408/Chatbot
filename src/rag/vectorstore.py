@@ -1,13 +1,15 @@
 from typing import Union
 from langchain_chroma import Chroma
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 class VectorDB:
     def __init__(self,
                  documents = None,
                  vector_db: Union[Chroma, FAISS] = Chroma,
-                 embedding = HuggingFaceEmbeddings()
+                 embedding = HuggingFaceEmbeddings(
+                     model_name="sentence-transformers/all-MiniLM-L6-v2"
+                 )
                  ) -> None:
         self.vector_db = vector_db
         self.embedding = embedding
